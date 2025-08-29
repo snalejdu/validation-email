@@ -6,11 +6,13 @@ use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Letter;
 
-Route::get('letter', Letter::class);
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+    Route::get('letter', Letter::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
